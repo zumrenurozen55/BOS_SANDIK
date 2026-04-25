@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+body {
+    background-color: #f0f0f0; 
+    color: #1a1a1a; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    transition: filter 2s ease-in-out; /* Renk zıtlanması için geçiş süresi */
+}
+
+/* Tüm renkleri negatife çeviren sınıf */
+body.inverted {
+    filter: invert(1);
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+}
+
+#ui-layer {
+    position: relative;
+    z-index: 10; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; 
+}
+
+.title {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 8px; 
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.start-btn {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #555; 
+    padding: 12px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 4px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0; 
+    animation: fadeIn 1.5s ease-in-out 0.5s forwards;
+}
+
+.start-btn:hover {
+    border-color: #1a1a1a;
+    background: rgba(0, 0, 0, 0.08); 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tıklandığında UI elementlerinin kaybolması */
+.fade-out {
+    animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
